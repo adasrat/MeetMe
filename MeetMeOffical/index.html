@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{ background-color: lightblue;}
+           h1 {text-align: center;}
+           h2 {text-align: center;}
+           form {text-align: center;}
+           a {text-align: center;}
+           img {text-align: left;
+                   width: 100px;
+                   height: 100px;
+               }
+         
+       </style>
+    <title>MeetMe</title>
+    
+ 
+</head>
+<body>
+    <div id="main">
+        <p>MeetMe</p><b>
+
+       
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email </label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Password</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Login</button>
+      </form>
+    </div>
+  </div>
+  <br>
+  <a href="signup.html">Sign Up </a><b>&nbsp</a>
+        
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+    
+    <script>
+        // Initialize Firebase
+                    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+            apiKey: "AIzaSyBdGKUZda_XwrR0AsCfrDpP12JHvE5hHY4",
+            authDomain: "meetme-aff4e.firebaseapp.com",
+            databaseURL: "https://meetme-aff4e-default-rtdb.firebaseio.com",
+            projectId: "meetme-aff4e",
+            storageBucket: "meetme-aff4e.appspot.com",
+            messagingSenderId: "900326595501",
+            appId: "1:900326595501:web:e7920541090e26f0549f24",
+            measurementId: "G-2TRSBV4F6R"
+            };
+    
+        
+        firebase.initializeApp(config);
+        
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    
+        // update firestore settings
+        db.settings({ timestampsInSnapshots: true });
+      </script>
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="script/auth.js"></script>
+      <script src="script/index.js"></script>
+
+</body>
+</html>
