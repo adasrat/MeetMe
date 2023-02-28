@@ -1,39 +1,128 @@
- <!DOCTYPE html>
- <html>
- <body>
-  <style>
-    body{ background-color: lightblue;}
-    h1 {text-align: center;}
-    h2 {text-align: center;}
-    form {text-align: center;}
-    a {text-align: center;}
-    img {text-align: left;
-            width: 100px;
-            height: 100px;
-        }
-</style>
-<img src="logo.png" alt="MeetMe">
-<h1>MeetMe</h1>
-<a>
-    <form>
-    <a href="Home.html">Home</a><b>&nbsp
-        <a href="Resource.html">Resource Hub</a><b>&nbsp
-            <a href="Login.html">Sign Up </a><b>&nbsp</a>
+<!DOCTYPE html>
+<html>
+<body>
+    <style>
+        body{ background-color: lightblue;}
+           h1 {text-align: center;}
+           h2 {text-align: center;}
+           h3 {text-align: right;}
+           form {text-align: center;}
+           a {text-align: center;}
+           img {text-align: left;
+                   width: 100px;
+                   height: 100px;
+               }
+               
+               </style>
+               <meta charset="windows-1252">
+               <meta name="viewport" content="width=device-width, initial-scale=1.0">
+               <img src="images/logo.png" alt="MeetMe">
+               <h1>MeetMe</h1>
+               <form>
+                <a href="Home.html">Home</a><b>&nbsp
+                <a href="Resource.html">Resource Hub</a><b>&nbsp<br>
+                <a href="account.html">Account</a><b>&nbsp<br>
                 </form>
-            <h2>Home</h2>
-             <form action="/action_page.php">
-              <label for="links">Add Your Links:</label>
-              <input type="url" id="links" name="links"><br><br>
-              <input type="submit">
-            </form>
-            <form>
-            <p> Twitter</p>
-            <a href="https://twitter.com/i/flow/login"><img src="twitter.png" alt="Twitter" style="width:50px;height:50px;"></a></b>
-            <p> Instagram</p>
-            <a href="https://www.instagram.com/accounts/login/"><img src="insta.png" alt="Instagram" style="width:50px;height:50px;"></a></b>
-            <p> Discord</p>
-            <a href="https://discord.com/login/"><img src="discord.png" alt="Discord" style="width:50px;height:50px;"></a></b>
-            </form>
+                <h2>Home</h2>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>MeetMe</title>
+                    <link rel="stylesheet" href="style.css">
+                </head>
+                <body>
+                    <form>
+                    <div class="formBox">
+                        <label for="website">Wesbite Handle</label>
+                        <input type="text" id="website" placeholder="Website"/>
+                    </div>
+                    <div class="formBox">
+                        <label for="url">URL</label>
+                        <input type="url" id="url" placeholder="URL"/>
+                    </div>
+                    <div class="formBox">
+                        <button id="btn">Click to Add</button>
+                    </div>
+                    <div id="msg">
+                        <pre></pre>
+                    </div>
+                </form>
+               
 
-        </body>
-            </html> 
+                <a href="display.html">Display Page</a><b>&nbsp<br>
+                
+    
+                
+                
+                <form>
+                   <P>CHANGE COLOR OF PAGE</P>
+                   <button type="button" onclick="red()">RED</button>
+                   <button type="button" onclick="blue()">BLUE</button>
+                   <button type="button" onclick="green()">GREEN</button>
+                   <button type="button" onclick="orange()">ORANGE</button>
+                   <button type="button" onclick="yellow()">YELLOW</button>
+                   <button type="button" onclick="purple()">PURPLE</button><br><br>
+                   <button type="button" onclick="lightblue()">RESET</button>
+                   
+
+                </form>
+
+                
+    <script>
+
+
+
+        function red() {
+            document.body.style.backgroundColor = "red";
+            }
+            function blue() {
+            document.body.style.backgroundColor = "blue";
+            }
+            function green() {
+            document.body.style.backgroundColor = "green";
+            }
+            function orange() {
+            document.body.style.backgroundColor = "orange";
+            }
+            function yellow() {
+            document.body.style.backgroundColor = "yellow";
+            }
+            function purple() {
+            document.body.style.backgroundColor = "purple";
+            }
+            function lightblue() {
+            document.body.style.backgroundColor = "lightblue";
+            }
+           
+
+        let links = [];
+                   
+                   const addLink = (ev)=>{
+                       ev.preventDefault();  
+                       let link = {
+
+                           website: document.getElementById('website').value,
+                           url: document.getElementById('url').value
+                       }
+                       links.push(link);
+                       document.querySelector('form').reset();
+           
+                       
+                       
+                       let pre = document.querySelector('#msg pre');
+                       pre.textContent = '\n' + JSON.stringify(links, '\t', 2);
+           
+                       
+                       localStorage.setItem('linkList', JSON.stringify(links) );
+                   }
+                   document.addEventListener('DOMContentLoaded', ()=>{
+                       document.getElementById('btn').addEventListener('click', addLink);
+                   });
+
+
+            
+    </script>
+    
+
+</body>
+</html>
