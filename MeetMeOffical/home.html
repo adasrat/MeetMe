@@ -5,70 +5,123 @@
         body{ background-color: lightblue;}
            h1 {text-align: center;}
            h2 {text-align: center;}
+           h3 {text-align: right;}
            form {text-align: center;}
            a {text-align: center;}
            img {text-align: left;
                    width: 100px;
                    height: 100px;
                }
-         
-       </style>
-     
-     <h1>MeetMe</h1>
-     
+               
+               </style>
+               <meta charset="windows-1252">
+               <meta name="viewport" content="width=device-width, initial-scale=1.0">
+               <h1>MeetMe</h1>
+               <form>
+                <a href="Home.html">Home</a><b>&nbsp
+                <a href="Resource.html">Resource Hub</a><b>&nbsp<br>
+                <a href="account.html">Account</a><b>&nbsp<br>
+                </form>
+                <h2>Home</h2>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>MeetMe</title>
+                    <link rel="stylesheet" href="style.css">
+                </head>
+                <body>
+                    <form>
+                    <div class="formBox">
+                        <label for="website">Wesbite Handle</label>
+                        <input type="text" id="website" placeholder="Website"/>
+                    </div>
+                    <div class="formBox">
+                        <label for="url">URL</label>
+                        <input type="url" id="url" placeholder="URL"/>
+                    </div>
+                    <div class="formBox">
+                        <button id="btn">Click to Add</button>
+                    </div>
+                    <div id="msg">
+                        <pre></pre>
+                    </div>
+                </form>
+               
 
-  <form>
-    <a href="Home.html">Home</a><b>&nbsp
-    <a href="Resource.html">Resource Hub</a><b>&nbsp<br>
- </form>
- <h2>Home</h2>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <div id="data">
-            <input type="text" id="name" placeholder="Enter Page Name">
-            <input type="url" id="urlname" placeholder="Enter URL">
-        
-            <button>Add</button>
-        </div>
-        <table>
-            <tr>
-                <th>Website</th>
-                <th>Link</th>  
-            </tr>
-           
-        </table>
-    </div>
-    <form action="#">
-        <label for="links">Websites</label>
-        <select name="websites" id="web">
-          <option value="select">Select Websites</option>
-          <option value="twitter">Twitter</option>
-          <option value="instagram">Instagram</option>
-          <option value="discord">Discord</option>
-          <option value="facebook">Facebook</option>
-          <option value="linkedIn">LinkedIn</option>
-          <option value="tiktok">TikTok</option>
-          <option value="reddit">Reddit</option>
-          <option value="spotify">Spotify</option>
-        </select>
-        <button>Add</button>
-  </form>
-  <form>
-    <p> Twitter</p>
-    <a href="https://twitter.com/i/flow/login"><img src="twitter.png" alt="Twitter" style="width:50px;height:50px;"></a></b>
-    <p> Instagram</p>
-    <a href="https://www.instagram.com/accounts/login/"><img src="insta.png" alt="Instagram" style="width:50px;height:50px;"></a></b>
-    <p> Discord</p>
-    <a href="https://discord.com/login/"><img src="discord.png" alt="Discord" style="width:50px;height:50px;"></a></b>
-    </form>
-            
-    <script src="script.js"></script>
+                <a href="display.html">Display Page</a><b>&nbsp<br>
+                
     
+                
+                
+                <form>
+                   <P>CHANGE COLOR OF PAGE</P>
+                   <button type="button" onclick="red()">RED</button>
+                   <button type="button" onclick="blue()">BLUE</button>
+                   <button type="button" onclick="green()">GREEN</button>
+                   <button type="button" onclick="orange()">ORANGE</button>
+                   <button type="button" onclick="yellow()">YELLOW</button>
+                   <button type="button" onclick="purple()">PURPLE</button><br><br>
+                   <button type="button" onclick="lightblue()">RESET</button>
+                   
+
+                </form>
+
+                
+    <script>
+
+
+
+        function red() {
+            document.body.style.backgroundColor = "red";
+            }
+            function blue() {
+            document.body.style.backgroundColor = "blue";
+            }
+            function green() {
+            document.body.style.backgroundColor = "green";
+            }
+            function orange() {
+            document.body.style.backgroundColor = "orange";
+            }
+            function yellow() {
+            document.body.style.backgroundColor = "yellow";
+            }
+            function purple() {
+            document.body.style.backgroundColor = "purple";
+            }
+            function lightblue() {
+            document.body.style.backgroundColor = "lightblue";
+            }
+           
+
+        let links = [];
+                   
+                   const addLink = (ev)=>{
+                       ev.preventDefault();  
+                       let link = {
+
+                           website: document.getElementById('website').value,
+                           url: document.getElementById('url').value
+                       }
+                       links.push(link);
+                       document.querySelector('form').reset();
+           
+                       
+                       
+                       let pre = document.querySelector('#msg pre');
+                       pre.textContent = '\n' + JSON.stringify(links, '\t', 2);
+           
+                       
+                       localStorage.setItem('linkList', JSON.stringify(links) );
+                   }
+                   document.addEventListener('DOMContentLoaded', ()=>{
+                       document.getElementById('btn').addEventListener('click', addLink);
+                   });
+
+
+            
+    </script>
+    
+
 </body>
 </html>

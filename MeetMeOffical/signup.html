@@ -1,42 +1,63 @@
 <!DOCTYPE html>
 <html>
-<body>
- <style>
- body{ background-color: lightblue;}
+  <body>
+    <style>
+    body{ background-color: lightblue;}    
     h1 {text-align: center;}
     h2 {text-align: center;}
-    form {text-align: left;}
+    form {text-align: center;}
     a {text-align: center;}
     img {text-align: left;
             width: 100px;
             height: 100px;
-        }
-  
-</style>
+          }
+    </style>
+    <h1>MeetMe</h1>
+    <h2>Sign up</h2><br />
+      <form>
+        <div>
+          <label for="username">Username</label>
+          <input type="text" name="username">
+      </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="email">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="text" name="password">
+        </div>
 
-<h1>MeetMe</h1>
+        <button type="submit">Submit</button>
+    </form>
 
-<h2>Sign up</h4><br />
-<div id="modal-signup" class="modal">
-    <div class="modal-content">
-      
-      <form id="signup-form">
-        <div class="input-field">
-          <input type="email" id="signup-email" required />
-          <label for="signup-email">Enter Email </label>
-        </div>
-        <div class="input-field">
-          <input type="password" id="signup-password" required />
-          <label for="signup-password">Enter password</label>
-        </div>
-        <div class="input-field">
-          <input type="text" id="username" required />
-          <label for="username">Enter Username</label>
-        </div>
-        <button class="btn yellow darken-2 z-depth-0">Sign up</button>
-      </form>
-    </div>
-  </div>
+  <script>
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', (e) => {
+    e.preventDefault(); 
+    const formData = new FormData(form); 
+    const obj = Object.fromEntries(formData); 
+    const json = JSON.stringify(obj);
+    localStorage.setItem('form', json);
+
+    window.location.href = "home.html";
+
+    })
+    
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
