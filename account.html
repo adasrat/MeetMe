@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <style>
+        body{ background-color: lightblue;}
+           h1 {text-align: center;}
+           h2 {text-align: center;}
+           form {text-align: center;}
+           a {text-align: center;}
+           img {text-align: left;
+                   width: 100px;
+                   height: 100px;
+               }
+                </style>
+                <img src="images/logo.png" alt="MeetMe">
+                <h1>MeetMe</h1>
+                <form>
+                    <a href="Home.html">Home</a><b>&nbsp
+                    <a href="Resource.html">Resource Hub</a><b>&nbsp<br>
+                    <a href="account.html">Account</a><b>&nbsp<br>
+                </form>
+                <h2>Account Page</h2>
+                <h2>
+                    <div id="data"></div>
+                </h2>
+
+                <script>
+                    const json = localStorage.getItem('form');
+                    const obj = JSON.parse(json);
+            
+                    for (key in obj) {
+                        const markup = `
+                        <div> 
+                            <span>${key}: ${obj[key]}</span>
+                        </div>
+                        `;
+                        document.getElementById('data').innerHTML += markup;
+                    }
+            </script>
+
+    </body>
+</html> 
