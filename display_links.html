@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+        body{ background-color: lightblue;}
+           h1 {text-align: center;}
+           h2 {text-align: center;}
+           form {text-align: center;}
+           a {text-align: center;}
+           img {text-align: left;
+                   width: 100px;
+                   height: 100px;}
+         
+    </style>
+	<title>Links</title>
+	<h1>MeetMe</h1>
+     <form>
+	   <h2>Your Page</h2>
+	   <div id="links"><br></div>
+	
+	   <div class="container">
+        <p>Enter your URL </p> 
+        <input type="text" placeholder="text or URL" id="qrText">
+    
+        <div id="imgBox">
+            <img src="" id="qrImage">
+        </div>
+    
+        <button onclick="generateQR()">Generate QR CODE</button> 
+    </div>   
+	
+	
+	<script>
+		var links = localStorage.getItem("links");
+		document.getElementById("links").innerHTML = links;
+
+
+		let imgBox = document.getElementById("imgBox");
+    let qrImage = document.getElementById("qrImage");
+    let qrText = document.getElementById("qrText");
+        
+    
+    function generateQR(){
+        if(qrText.value.length > 0){
+        qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+        imgBox.classList.add("show-img");
+    }
+}
+	</script>
+</body>
+</html>
