@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
-<body>
-    <style>
+    <body>
+        <style>
         body{ background-color: lightblue;}
-           h1 {text-align: center;}
-           h2 {text-align: center;}
-           h3 {text-align: right;}
-           form {text-align: center;}
-           a {text-align: center;}
-           img {text-align: left;
-                   width: 100px;
-                   height: 100px;
-               }
+        h1 {text-align: center;}
+        h2 {text-align: center;}
+        h3 {text-align: right;}
+        form {text-align: center;}
+        a{
+
+display: block;
+
+line-height: 80px;
+
+}
+        img {text-align: center;
+                width: 100px;
+                height: 100px;
+            }
+        table {
+        width: 400px;
+        margin: 0 auto;
+
+}
                
                </style>
                <meta charset="windows-1252">
@@ -30,31 +41,60 @@
                     <title>MeetMe</title>
                     <link rel="stylesheet" href="style.css">
                 </head>
-                <body>
-                    <form>
-                    <div class="formBox">
-                        <label for="website">Wesbite Handle</label>
-                        <input type="text" id="website" placeholder="Website"/>
-                    </div>
-                    <div class="formBox">
-                        <label for="url">URL</label>
-                        <input type="url" id="url" placeholder="URL"/>
-                    </div>
-                    <div class="formBox">
-                        <button id="btn">Click to Add</button>
-                    </div>
-                    <div id="msg">
-                        <pre></pre>
-                    </div>
-                </form>
+                <form>
+                <table>
+                    <tr>
+                        <th>URL</th>
+                        <th>Link Text</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url1"></td>
+                        <td><input type="text" id="text1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url2"></td>
+                        <td><input type="text" id="text2"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url3"></td>
+                        <td><input type="text" id="text3"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url4"></td>
+                        <td><input type="text" id="text4"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url5"></td>
+                        <td><input type="text" id="text5"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url6"></td>
+                        <td><input type="text" id="text6"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url7"></td>
+                        <td><input type="text" id="text7"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url8"></td>
+                        <td><input type="text" id="text8"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url9"></td>
+                        <td><input type="text" id="text9"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url10"></td>
+                        <td><input type="text" id="text10"></td>
+                    </tr>
+                    <!-- add more rows as needed -->
+                </table>
+                <br>
+		        <input type="button" value="Submit" onclick="convertUrls()">
+            </form>
                
 
-                <a href="display.html">Display Page</a><b>&nbsp<br>
-                
-    
-                
-                
-                <form>
+                 <form>
                    <P>CHANGE COLOR OF PAGE</P>
                    <button type="button" onclick="red()">RED</button>
                    <button type="button" onclick="blue()">BLUE</button>
@@ -70,7 +110,26 @@
                 
     <script>
 
-
+        function convertUrls() {
+        var urls = [];
+        var texts = [];
+        for (var i = 1; i <= 10; i++) { // change 2 to the number of rows in the table
+            var url = document.getElementById("url" + i).value.trim();
+            if (url !== "") {
+                urls.push(url);
+            }
+            var text = document.getElementById("text" + i).value.trim();
+            if (text !== "") {
+                texts.push(text);
+            }
+        }
+        var links = "";
+        for (var i = 0; i < urls.length; i++) {
+            links += "<a href='" + urls[i] + "'>" + texts[i] + "</a><br><br>";
+        }
+        localStorage.setItem("links", links);
+        window.location.href = "display_links.html";
+        }
 
         function red() {
             document.body.style.backgroundColor = "red";
