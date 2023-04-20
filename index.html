@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="index.css">
         <style>
         body{ background-color: lightblue;}
         h1 {text-align: center;}
@@ -13,14 +13,15 @@
             height: 100px;
         }
         </style>
-        <img src="images/logo.png" alt="MeetMe">
         <title>MeetMe</title>
     </head>
     <body>
-        <div id="main">
+            <div id="main">
             <h1>MeetMe</h1>
+        
             <h2>Login</h2><br />
                 <form>
+                <div class="inputbox">
                     <div>
                         <label for="username">Username</label>
                         <input type="text" name="username">
@@ -33,13 +34,15 @@
                         <label for="password">Password</label>
                         <input type="password" name="password">
                     </div>
-                    
+               
                     <button type="submit">Submit</button>
+                    
+                    <button>
+                    <a href="signup.html">Sign Up </a><b>&nbsp</a>
+                    </button>    
+                </div>
                 </form>
-            </div>
-            
-            <a href="signup.html">Sign Up </a><b>&nbsp</a>
-            
+         
 
             <script>
                 const form = document.querySelector('form');
@@ -51,7 +54,7 @@
                 const json = JSON.stringify(obj);
                 localStorage.setItem('form', json);
 
-                window.location.href = "Home.html";
+                window.location.href = "home.html";
 
                 })
                 
