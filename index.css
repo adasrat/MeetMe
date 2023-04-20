@@ -1,0 +1,75 @@
+#main h1{
+
+    background-color: darkblue;
+    color: aliceblue;
+}
+
+
+.inputbox{
+   border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #f2f2f2;
+  padding: 12px;
+  border-radius: 3px;
+  width: 250px;
+  font-size: 14px;
+  margin: auto;
+} 
+.inputbox a{
+    width: 25%;
+    height: 15px;
+    background: #494eea;
+    color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+
+.inputbox button{
+    width: 25%;
+    height: 15px;
+    background: #494eea;
+    color: #fff;
+    border: 0;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.signup{
+    border: none;
+   -webkit-appearance: none;
+   -ms-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   background: #f2f2f2;
+   padding: 12px;
+   border-radius: 3px;
+   width: 250px;
+   font-size: 14px;
+   margin: auto;
+ } 
+
+ .signup button{
+    width: 25%;
+    height: 15px;
+    background: #494eea;
+    color: #fff;
+    border: 0;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+    margin: 20px 0;
+    font-weight: 500;
+
+ }
