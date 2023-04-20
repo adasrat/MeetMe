@@ -1,6 +1,7 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <body>
+    <head><link rel="stylesheet" href="index.css"></head>
     <style>
     body{ background-color: lightblue;}    
     h1 {text-align: center;}
@@ -12,9 +13,13 @@
             height: 100px;
           }
     </style>
+    <div id="main">
     <h1>MeetMe</h1>
     <h2>Sign up</h2><br />
       <form>
+        <div class="signup"> 
+
+        
         <div>
           <label for="username">Username</label>
           <input type="text" name="username">
@@ -25,10 +30,13 @@
         </div>
         <div>
             <label for="password">Password</label>
-            <input type="text" name="password">
+            <input type="password" name="password">
         </div>
+     
 
         <button type="submit">Submit</button>
+      </div>
+    </div>
     </form>
 
   <script>
@@ -41,20 +49,11 @@
     const json = JSON.stringify(obj);
     localStorage.setItem('form', json);
 
-    window.location.href = "Home.html";
+    window.location.href = "home.html";
 
     })
     
 </script>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -93,4 +92,4 @@
 
  </body>           
  
- </html> 
+ </html>
