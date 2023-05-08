@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
 <body>
+    <link rel="stylesheet" href="style.css">
+    <title>MeetMe</title>
     <style>
-        body{ background-color: lightblue;}
-           h1 {text-align: center;}
+               h1 {text-align: center;}
            h2 {text-align: center;}
            form {text-align: center;}
+           p  {text-align: center;}
            a {text-align: center;}
            img {text-align: left;
                    width: 100px;
                    height: 100px;
                }
                 </style>
-                <img src="images/logo.png" alt="MeetMe">
+                
                 <h1>MeetMe</h1>
-                <form>
-                    <a href="Home.html">Home</a><b>&nbsp
-                    <a href="Resource.html">Resource Hub</a><b>&nbsp<br>
-                    <a href="account.html">Account</a><b>&nbsp<br>
-                </form>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="account.html">Account</a></li>
+                        <li><a href="home.html">Link Editor</a></li>
+                        <li><a href="resource.html">Resources</a></li>
+                    </ul>
+                </nav>
                 <h2>Account Page</h2>
                 <h2>
                     <div id="data"></div>
@@ -36,6 +41,8 @@
                         `;
                         document.getElementById('data').innerHTML += markup;
                     }
+                   
+            
             </script>
 
     </body>

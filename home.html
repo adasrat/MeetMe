@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <head>
+            <style>
+                h1 {text-align: center;}
+                h2 {text-align: center;}
+                form {text-align: center;}
+                a {text-align: center;}
+                img {text-align: left;
+                        width: 100px;
+                        height: 100px;
+                      }
+                table {
+                    width: 400px;
+                    margin: 0 auto;
+
+                    }           
+                </style>         
+
+            
+            <title>MeetMe</title>
+        
+            <link rel="stylesheet" type="text/css" href="style.css">
+        </head>
+        
+               <meta charset="windows-1252">
+               <meta name="viewport" content="width=device-width, initial-scale=1.0">
+               
+               
+               
+               <div id="main">
+                <header>
+                    <h1>MeetMe</h1>
+                   
+                </header>
+               </div>
+               <form>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="account.html">Account</a></li>
+                        <li><a href="home.html">Link Editor</a></li>
+                        <li><a href="resource.html">Resources</a></li>
+                    </ul>
+                </nav>
+                <h2>Editor Page</h2>
+                
+                <form>
+                <table>
+                    <tr>
+                        <th>URL</th>
+                        <th>Link Text</th>
+                    </tr>
+                    <tr>
+                        <button class="button" onclick="clearInput()">Clear All</button>
+                        <td><input type="text" id="url1"></td>
+                        <td><input type="text" id="text1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url2"></td>
+                        <td><input type="text" id="text2"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url3"></td>
+                        <td><input type="text" id="text3"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url4"></td>
+                        <td><input type="text" id="text4"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url5"></td>
+                        <td><input type="text" id="text5"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url6"></td>
+                        <td><input type="text" id="text6"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url7"></td>
+                        <td><input type="text" id="text7"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url8"></td>
+                        <td><input type="text" id="text8"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url9"></td>
+                        <td><input type="text" id="text9"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="url10"></td>
+                        <td><input type="text" id="text10"></td>
+                    </tr>
+                    <!-- add more rows as needed -->
+                </table>
+                <br>
+                
+		        <input type="button" value="Submit" class="button" onclick="convertUrls()">
+           
+            </form>
+               
+
+
+
+                
+                
+    <script>
+
+        function convertUrls() {
+        var urls = [];
+        var texts = [];
+        for (var i = 1; i <= 10; i++) { // change 2 to the number of rows in the table
+            var url = document.getElementById("url" + i).value.trim();
+            if (url !== "") {
+                urls.push(url);
+            }
+            var text = document.getElementById("text" + i).value.trim();
+            if (text !== "") {
+                texts.push(text);
+            }
+        }
+        var links = "";
+        for (var i = 0; i < urls.length; i++) {
+            links += "<a href='" + urls[i] + "'>" + texts[i] + "</a><br><br>";
+        }
+        localStorage.setItem("links", links);
+        window.location.href = "display.html";
+        }
+
+
+
+        let links = [];
+                   
+                   const addLink = (ev)=>{
+                       ev.preventDefault();  
+                       let link = {
+
+                           website: document.getElementById('website').value,
+                           url: document.getElementById('url').value
+                       }
+                       links.push(link);
+                       document.querySelector('form').reset();
+           
+                       
+                       
+                       let pre = document.querySelector('#msg pre');
+                       pre.textContent = '\n' + JSON.stringify(links, '\t', 2);
+           
+                       
+                       localStorage.setItem('linkList', JSON.stringify(links) );
+                   }
+                   document.addEventListener('DOMContentLoaded', ()=>{
+                       document.getElementById('btn').addEventListener('click', addLink);
+                   });
+
+
+            
+    </script>
+    
+
+</body>
+</html>
